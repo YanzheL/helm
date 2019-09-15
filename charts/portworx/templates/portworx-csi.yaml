@@ -64,7 +64,7 @@ spec:
       serviceAccount: px-csi-account
       containers:
         - name: csi-external-provisioner
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           image: "{{ template "px.getcsiImages" . }}/csi-provisioner:v0.2.0"
           args:
             - "--v=5"
@@ -77,7 +77,7 @@ spec:
             - name: socket-dir
               mountPath: /csi
         - name: csi-attacher
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           image: "{{ template "px.getcsiImages" . }}/csi-attacher:v0.2.0"
           args:
             - "--v=5"

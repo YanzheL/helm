@@ -37,7 +37,7 @@ spec:
       - name: pre-install-job
         terminationMessagePath: '/dev/termination-log'
         terminationMessagePolicy: 'FallbackToLogsOnError'
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
 
         {{- if eq $customRegistryURL "none" }}
         image: "portworx/px-etcd-preinstall-hook:v1.2"

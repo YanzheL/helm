@@ -127,7 +127,7 @@ spec:
         - --driver=pxd
         - --verbose
         - --leader-elect=true
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         image: {{ template "px.getStorkImage" . }}:{{ required "A valid Image tag is required in the SemVer format" .Values.storkVersion }}
         resources:
           requests:
