@@ -70,7 +70,7 @@ release: {{ .Release.Name | quote }}
         {{cat (trim .Values.customRegistryURL) "/gcr.io/google_containers" | replace " " ""}}
     {{- end -}}
 {{- else -}}
-        {{ "gcr.io/google_containers" }}
+        {{ "gcr.azk8s.cn/google_containers" }}
 {{- end -}}
 {{- end -}}
 
@@ -82,7 +82,7 @@ release: {{ .Release.Name | quote }}
         {{cat (trim .Values.customRegistryURL) "/quay.io/k8scsi" | replace " " ""}}
     {{- end -}}
 {{- else -}}
-        {{ "quay.io/k8scsi" }}
+        {{ "quay.azk8s.cn/k8scsi" }}
 {{- end -}}
 {{- end -}}
 
