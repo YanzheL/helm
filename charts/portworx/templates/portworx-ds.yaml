@@ -238,6 +238,8 @@ spec:
             - mountPath: /etc/pwx/etcdcerts
               name: etcdcerts
           {{- end }}
+            - name: criosock
+              mountPath: /var/run/crio/crio.sock
             - name: dockersock
               mountPath: /var/run/docker.sock
             - name: containerdsock
@@ -348,6 +350,9 @@ spec:
               path: client-key.key
             {{- end -}}
           {{- end}}
+        - name: criosock
+          hostPath:
+            path: /var/run/crio/crio.sock
         - name: dockersock
           hostPath:
             path: {{if eq $pksInstall true}}/var/vcap/sys/run/docker/docker.sock{{else}}/var/run/docker.sock{{end}}
